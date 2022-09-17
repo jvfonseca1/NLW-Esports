@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, FlatList } from 'react-native';
 
 import logoLmg from '../../../assets/logo-nlw-esports.png';
 import { GameCard } from '../../GameCard';
@@ -21,11 +21,18 @@ export function Home(){
                 subtitle="Conecte-se e comece a jogar"
             />
 
-            <GameCard 
-            data={GAMES[0]}
+            <FlatList
+                data={GAMES}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => (
+                    <GameCard 
+                        data={item}
+                    />
+                )}
+                horizontal
+                contentContainerStyle={styles.contentList}
             />
-        </View>
 
-        
+        </View>
     );
 }

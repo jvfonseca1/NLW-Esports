@@ -11,13 +11,13 @@ interface Props extends ViewProps {
 export function Heading({title, subtitle, ...rest}: Props) {
     return (
         <View style={styles.container} {...rest}>
-            <text style={styles.title}>
+            <Text style={styles.title}>
                 {title}
-            </text>
+            </Text>
 
-            <text style={styles.subtitle}>
+            <Text style={styles.subtitle}>
                 {subtitle}
-            </text>
+            </Text>
         </View>
     );
 }
