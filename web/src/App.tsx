@@ -46,10 +46,10 @@ function App() {
       {games.map(game => {
             return (
               <GameBanner
-              key={game.id}
-              title={game.title}
-              bannerUrl={game.bannerURL}
-              adsCount={game._count.ads}
+                key={game.id}
+                title={game.title}
+                bannerUrl={game.bannerURL}
+                adsCount={game._count.ads}
               />
             )
           })}
@@ -91,49 +91,49 @@ function App() {
                               <div className="grid grid-cols-5 gap-1">
                                 <button 
                                   title="Domingo"
-                                  className="w-9 h-9 rounded bg-zinc-900"  
+                                  className="w- h-9 rounded bg-zinc-900"  
                                 >
                                   D
                                 </button>
                                   
                                 <button 
                                   title="Segunda"
-                                  className="w-9 h-9 rounded bg-zinc-900"  
+                                  className="w- h-9 rounded bg-zinc-900"  
                                 >
                                   S
                                 </button>
                                   
                                 <button 
                                   title="Terça"
-                                  className="w-9 h-9 rounded bg-zinc-900"  
+                                  className="w- h-9 rounded bg-zinc-900"  
                                 >
                                   T
                                 </button>
                                   
                                 <button 
                                   title="Quarta"
-                                  className="w-9 h-9 rounded bg-zinc-900"  
+                                  className="w- h-9 rounded bg-zinc-900"  
                                 >
                                   Q
                                 </button>
                                   
                                 <button 
                                   title="Quinta"
-                                  className="w-9 h-9 rounded bg-zinc-900"  
+                                  className="w- h-9 rounded bg-zinc-900"  
                                 >
                                   Q
                                 </button>
                                   
                                 <button 
                                   title="Sexta"
-                                  className="w-9 h-9 rounded bg-zinc-900"  
+                                  className="w- h-9 rounded bg-zinc-900"  
                                 >
                                   S
                                 </button>
                                   
                                 <button 
                                   title="Sábado"
-                                  className="w-9 h-9 rounded bg-zinc-900"  
+                                  className="w- h-9 rounded bg-zinc-900"  
                                 >
                                   S
                                 </button>
