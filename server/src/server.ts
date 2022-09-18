@@ -65,6 +65,7 @@ app.get('/games/:id/ads', async (req, res) => {
             hourStart: true,
             hourEnd: true,
             useVoiceChannel: true,
+            yearsPlaying: true,
         },
 
         // Filtro GameId
@@ -85,6 +86,7 @@ app.get('/games/:id/ads', async (req, res) => {
             ...ads,
             weekDays: ads.weekDays.split(','),
             hourStart: convertMinutesToHours(ads.hourStart),
+            hourEnd: convertMinutesToHours(ads.hourEnd),
         }
     }));
 })

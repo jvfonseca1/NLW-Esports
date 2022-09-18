@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-end",
     },
 
-    name: {
+    title: {
         color: THEME.COLORS.TEXT,
         fontSize: THEME.FONT_SIZE.MD,
         fontFamily: THEME.FONT_FAMILY.BOLD,
