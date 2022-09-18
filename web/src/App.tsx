@@ -1,13 +1,9 @@
 import './styles/main.css';
 
 import logoimg from './assets/logo-nlw.svg';
-<<<<<<< HEAD
 import { GameBanner } from './components/GameBanner/GameBanner';
 import { CreateAdBanner } from './components/CreateAdBanner/CreateAdBanner';
 import { useEffect, useState } from 'react';
-=======
-import {MagnifyingGlassPlus} from "phosphor-react";
->>>>>>> parent of 0165b1f (Separated Functions in Components)
 
 // Tipagem Game
 interface Game {
@@ -41,25 +37,6 @@ function App() {
       </h1>
 
       {/* Grid de Jogos */}
-<<<<<<< HEAD
-      <div className='grid grid-cols-6 gap-6 mt-16'>
-        
-        {games.map(game => {
-          return(
-            <GameBanner 
-              key={game.id}
-              bannerUrl= {game.bannerURL}
-              title= {game.title}
-              adsCount={game._count.ads}
-            />
-          )
-        })}
-
-      </div>
-      
-      {/* Postagem de Anúncios */}
-      <CreateAdBanner/>
-=======
       <div id='games-grid' className='grid grid-cols-6 gap-6 mt-16'>
         <a href="" className='relative rounded-lg overflow-hidden'>
           <img src="/Game-1.png" alt="" />
@@ -131,7 +108,6 @@ function App() {
           </button>
         </div>
       </div>
->>>>>>> parent of 0165b1f (Separated Functions in Components)
 
     </div>
   )
