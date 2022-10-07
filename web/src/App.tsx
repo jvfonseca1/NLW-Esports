@@ -34,7 +34,7 @@ function App() {
   }, [])
 
   return (
-   <div className='flex max-x-[1344px] mx-auto my-20 flex-col items-center'>
+   <div className='flex max-w-[1344px] mx-auto my-20 flex-col items-center '>
     <img src={logoImg} alt="" />
 
     <h1 className='text-6xl text-white font-black mt-20'>
@@ -54,8 +54,19 @@ function App() {
         )
       })}
     </div>
-      <CreateAdBanner/>
-    
+      <Dialog.Root>
+        <CreateAdBanner/>
+
+        <Dialog.Portal>
+          <Dialog.Overlay />
+
+          <Dialog.Content>
+            <Dialog.Title>Publique um anúncio</Dialog.Title>
+
+            
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
    </div>
   )
 }
