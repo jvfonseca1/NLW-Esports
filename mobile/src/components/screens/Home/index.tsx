@@ -14,7 +14,7 @@ import { Background } from '../../background';
 
 export function Home(){
     // Conexão com a api
-    const [games,setGames] = useState<GameCardProps>([]);
+    const [games,setGames] = useState<GameCardProps[]>([]);
    
     useEffect(() => {
         fetch('http://192.168.1.134:8080/games')
