@@ -5,9 +5,9 @@ import './styles/main.css';
 import * as Dialog from '@radix-ui/react-dialog'
 
 import logoImg from './assets/logo-nlw.svg';
-import { GameBanner } from './components/GameBanner/GameBanner';
-import { CreateAdBanner } from './components/CreateAdBanner/CreateAdBanner';
-import { CreateAdModal } from './components/CreateAdModal/CreateAdModal';
+import { GameBanner } from './components/GameBanner';
+import { CreateAdBanner } from './components/CreateAdBanner';
+import { CreateAdModal } from './components/CreateAdModal';
 
 // Tipagem Game
 interface Game {

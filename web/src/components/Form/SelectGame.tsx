@@ -1,6 +1,24 @@
 import * as Select from '@radix-ui/react-select';
+import { useEffect, useState } from 'react';
+
+// Tipagem Game
+interface Game {
+    id: string;
+    title: string;
+}
 
 export function SelectGame (){
+    // Conexão com a api
+    const [games, setGames] = useState<Game[]>([])
+
+    useEffect(() => {
+        fetch('http://localhost:8080/games')
+            .then ((response) => response.json())
+            .then ((data) => {
+                setGames(data)
+            })
+    }, [])
+    
     return (
         <Select.Root>
         <Select.Trigger className="bg-zinc-900 py-3 px-4 rounded text-sm flex items-center justify-between text-zinc-500 ">
@@ -12,30 +30,15 @@ export function SelectGame (){
             <Select.Content className='text-sm'>
                 <Select.ScrollUpButton/>
                 <Select.Viewport className='flex flex-col w-full rounded shadow bg-zinc-900'>
-                <Select.Item className='cursor-default text-white w-full h-8 hover:bg-zinc-800 py-1 px-2' value ="League of Legends">
-                    <Select.ItemText>League of Legends</Select.ItemText>
-                    <Select.ItemIndicator />
-                </Select.Item>
-
-                <Select.Item className='cursor-default text-white min-w-full h-8 hover:bg-zinc-800 py-1 px-2' value="CS: GO">
-                    <Select.ItemText>CS: GO</Select.ItemText>
-                    <Select.ItemIndicator />
-                </Select.Item>
-
-                <Select.Item className='cursor-default text-white min-w-full h-8 hover:bg-zinc-800 py-1 px-2' value="Call of Duty: Warzone">
-                    <Select.ItemText>Call of Duty: Warzone</Select.ItemText>
-                    <Select.ItemIndicator />
-                </Select.Item>
-
-                <Select.Item className='cursor-default text-white min-w-full h-8 hover:bg-zinc-800 py-1 px-2' value="GTA V">
-                    <Select.ItemText>GTA V</Select.ItemText>
-                    <Select.ItemIndicator />
-                </Select.Item>
-
-                <Select.Item className='cursor-default text-white min-w-full h-8 hover:bg-zinc-800 py-1 px-2' value="Rainbow Six Siege">
-                    <Select.ItemText>Rainbow Six Siege</Select.ItemText>
-                    <Select.ItemIndicator />
-                </Select.Item>
+                
+                { games.map(game => {
+                    return (
+                        <Select.Item key={game.id} className='cursor-default text-white w-full h-8 hover:bg-zinc-800 py-1 px-2' value ={game.id}>
+                            <Select.ItemText>{game.title}</Select.ItemText>
+                            <Select.ItemIndicator />
+                        </Select.Item>
+                    )
+                })}
                 </Select.Viewport>
                 <Select.ScrollDownButton/>
             </Select.Content>
