@@ -52,34 +52,25 @@ export function CreateAdModal() {
             <Dialog.Title className='text-3xl font-black'>Publique um anúncio</Dialog.Title>
 
             <form onSubmit={handleCreateAd} className='mt-8 flex flex-col gap-4'>
+                {/* Listagem Games */}
                 <div className='flex flex-col gap-2'>
                     <label className='font-semibold' htmlFor='game'>Qual o game?</label>
-
-                    {/* Listagem Games */}
-                    <Select.Root>
-                        <Select.Trigger className="bg-zinc-900 py-3 px-4 rounded text-sm flex items-center justify-between text-zinc-500 ">
-                            <Select.Value placeholder="Selecione o game que deseja jogar"/>
-                            <Select.Icon />
-                        </Select.Trigger>
-
-                        <Select.Portal>
-                            <Select.Content className='text-sm'>
-                                <Select.ScrollUpButton/>
-                                <Select.Viewport className='flex flex-col w-full rounded shadow bg-zinc-900'>
-                            
-                                { games.map(game => {
-                                    return (
-                                        <Select.Item key={game.id} className='cursor-default text-white w-full h-8 hover:bg-zinc-800 py-1 px-2' value ={game.id}>
-                                            <Select.ItemText>{game.title}</Select.ItemText>
-                                            <Select.ItemIndicator />
-                                        </Select.Item>
-                                    )
-                                })}
-                                </Select.Viewport>
-                                <Select.ScrollDownButton/>
-                            </Select.Content>
-                        </Select.Portal>
-                    </Select.Root>
+                    <select
+                        defaultValue=""
+                        placeholder='Selecione o Jogo' 
+                        name="game" 
+                        id="game"
+                        className="bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500 text-white"
+                    >
+                        <option disabled className='text-zinc-500' value="">Qual o game que deseja jogar?</option>
+                        { games.map(game => {
+                            return (
+                                <option key={game.id} value ={game.id}>
+                                    {game.title}
+                                </option>
+                            )
+                        })}
+                    </select>
                 </div>
 
                 <div className='flex flex-col gap-2'>
