@@ -7,6 +7,7 @@ import { Input } from "./Form/Input";
 
 import { Check, GameController } from "phosphor-react";
 import { FormEvent, useEffect, useState } from 'react';
+import axios from 'axios';
 
 // Tipagem Game
 interface Game {
@@ -21,23 +22,33 @@ export function CreateAdModal() {
     const [useVoiceChannel, setUseVoiceChannel] = useState(false);
 
     //  Function Postagem Forms
-    function handleCreateAd(event: FormEvent) {
+    async function handleCreateAd(event: FormEvent) {
         event.preventDefault();
         
         const formData = new FormData(event.target as HTMLFormElement);
         const data = Object.fromEntries(formData);
-        
-        console.log(data);
-        console.log(weekDays);
-        console.log(useVoiceChannel);
+
+        try{
+            await axios.post(`http://localhost:8080/games/${data.game}/ads`, {
+                name: data.name,
+                weekDays: weekDays.map(Number),
+                hourStart: data.hourStart,
+                hourEnd: data.hourEnd,
+                useVoiceChannel: useVoiceChannel,
+                yearsPlaying: Number(data.yearsPlaying)
+            })
+
+            alert ('Anúncio criado com sucesso')
+        }catch (err) {
+            console.log(err);
+            alert ('Erro ao criar o anúncio')
+        }
     }
 
     // Conexão com a api Games
     useEffect(() => {
-        fetch('http://localhost:8080/games')
-            .then ((response) => response.json())
-            .then ((data) => {
-                setGames(data)
+        axios('http://localhost:8080/games').then ((response) => {
+                setGames(response.data);
             })
     }, [])
     

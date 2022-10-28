@@ -8,6 +8,7 @@ import logoImg from './assets/logo-nlw.svg';
 import { GameBanner } from './components/GameBanner';
 import { CreateAdBanner } from './components/CreateAdBanner';
 import { CreateAdModal } from './components/CreateAdModal';
+import axios from 'axios';
 
 // Tipagem Game
 interface Game {
@@ -25,10 +26,8 @@ function App() {
   const [games, setGames] = useState<Game[]>([])
 
   useEffect(() => {
-    fetch('http://localhost:8080/games')
-      .then ((response) => response.json())
-      .then ((data) => {
-        setGames(data)
+    axios('http://localhost:8080/games').then ((response) => {
+        setGames(response.data)
       })
   }, [])
 
