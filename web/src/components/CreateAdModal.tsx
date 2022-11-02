@@ -31,6 +31,7 @@ export function CreateAdModal() {
         try{
             await axios.post(`http://localhost:8080/games/${data.game}/ads`, {
                 name: data.name,
+                discord: data.discord,
                 weekDays: weekDays.map(Number),
                 hourStart: data.hourStart,
                 hourEnd: data.hourEnd,
@@ -56,7 +57,6 @@ export function CreateAdModal() {
     return(
         <Dialog.Portal>
             <Dialog.Overlay className='bg-black/60 inset-0 fixed'/>
-
             <Dialog.Content 
             className='fixed bg-[#2A2634] py-8 px-10 w-[510px] text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-lg shadow-black/25'
             >
